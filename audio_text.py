@@ -47,8 +47,8 @@ def run(api_key):
 
     # 변환된 원본 텍스트가 세션 상태에 저장되어 있으면 출력
     if "original_text" in st.session_state:
-        st.subheader("변환된 텍스트:")
-        st.markdown(st.session_state.original_text)
+        with st.expander(f"변환 텍스트", expanded=False):
+            st.markdown(st.session_state.original_text)
 
         # 원본 텍스트를 바탕으로 수정할 수 있도록 text_area에 표시
         edited_text = st.text_area("변경된 텍스트 (파일로 저장될 내용)", value=st.session_state.edited_text, height=200)
